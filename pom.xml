@@ -4,10 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+<!--    基本信息-->
     <groupId>com.banxia</groupId>
     <artifactId>s-pay-mall-mvc</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+<!--    子工程-->
     <modules>
         <module>s-pay-mall-common</module>
         <module>s-pay-mall-dao</module>
@@ -16,10 +19,163 @@
         <module>s-pay-mall-web</module>
     </modules>
 
+<!--    镜像-->
+    <repositories>
+        <repository>
+            <id>nexus-aliyun</id>
+            <name>nexus-aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+
+<!--    版本配置-->
     <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <org.mybatis.spring.boot.version>2.1.4</org.mybatis.spring.boot.version>
+        <mysql.version>8.0.22</mysql.version>
+        <com.alibaba.version>2.0.28</com.alibaba.version>
+        <org.apache.commons.version>3.9</org.apache.commons.version>
+        <com.google.guava.version>32.1.3-jre</com.google.guava.version>
+        <dom4j.version>1.6.1</dom4j.version>
+        <com.thoughtworks.xstream.version>1.4.10</com.thoughtworks.xstream.version>
+        <io.jsonwebtoken.version>0.9.1</io.jsonwebtoken.version>
+        <com.auth0.version>4.4.0</com.auth0.version>
+        <commons.codec.version>1.15</commons.codec.version>
+        <org.redisson.version>3.26.0</org.redisson.version>
+        <com.squareup.retrofit2.version>2.9.0</com.squareup.retrofit2.version>
+        <com.thoughtworks.xstream.new.version>1.4.20</com.thoughtworks.xstream.new.version>
+        <com.alipay.sdk.version>4.38.157.ALL</com.alipay.sdk.version>
+
     </properties>
+
+<!--    开发者-->
+    <developers>
+        <developer>
+            <name>BanXia</name>
+            <email>1943284256@qq.com</email>
+            <organization>God</organization>
+            <organizationUrl>https://github.com/BanXiaNa</organizationUrl>
+        </developer>
+    </developers>
+
+<!--    协议-->
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
+<!--    springboot-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.12</version>
+    </parent>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${org.mybatis.spring.boot.version}</version>
+            </dependency>
+            <!-- # 多数据源路由配置
+                 # mysql 5.x driver-class-name: com.mysql.jdbc.Driver    mysql-connector-java 5.1.34
+                 # mysql 8.x driver-class-name: com.mysql.cj.jdbc.Driver mysql-connector-java 8.0.22-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${com.alibaba.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${org.apache.commons.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${com.google.guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>${dom4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.thoughtworks.xstream</groupId>
+                <artifactId>xstream</artifactId>
+                <version>${com.thoughtworks.xstream.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${io.jsonwebtoken.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${com.auth0.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons.codec.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${org.redisson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>retrofit</artifactId>
+                <version>${com.squareup.retrofit2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>converter-jackson</artifactId>
+                <version>${com.squareup.retrofit2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>adapter-rxjava2</artifactId>
+                <version>${com.squareup.retrofit2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.thoughtworks.xstream</groupId>
+                <artifactId>xstream</artifactId>
+                <version>${com.thoughtworks.xstream.new.version}</version>
+            </dependency>
+            <!-- 支付宝沙箱支付对接文档：https://opendocs.alipay.com/common/02kkv7 -->
+            <dependency>
+                <groupId>com.alipay.sdk</groupId>
+                <artifactId>alipay-sdk-java</artifactId>
+                <version>${com.alipay.sdk.version}</version>
+            </dependency>
+        </dependencies>
+
+    </dependencyManagement>
+
+
 
 </project>
