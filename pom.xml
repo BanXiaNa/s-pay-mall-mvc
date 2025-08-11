@@ -15,7 +15,7 @@
         <module>s-pay-mall-common</module>
         <module>s-pay-mall-dao</module>
         <module>s-pay-mall-domain</module>
-        <module>s-pay-mall-serivce</module>
+        <module>s-pay-mall-service</module>
         <module>s-pay-mall-web</module>
     </modules>
 
