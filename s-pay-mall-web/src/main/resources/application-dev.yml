@@ -13,3 +13,39 @@ logging:
       root:  info
   config: classpath:logback-spring.xml
 
+# 微信公众号对接
+weixin:
+    config:
+        originalid: gh_5d56e8de7de7
+        token: 3387
+        app-id: wxa472b5da198cf02f
+        app-secret: 90d671bf7122c329ee6a6b980ca7cfc3
+        # 登陆成功模板id
+        template-id: NmPOTnHL_rfG1qgCLQ1cSgCr4GcWb3QUA89-Xl6bjiY
+
+# MySql数据库配置
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:13306/s-pay-mall?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC&useSSL=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    validationQuery: SELECT 1
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat
+
+
+#mybatis:
+#  mapper-locations: classpath:/mybatis/mapper/*.xml
+#  config-location:  classpath:/mybatis/config/mybatis-config.xml
+
+
