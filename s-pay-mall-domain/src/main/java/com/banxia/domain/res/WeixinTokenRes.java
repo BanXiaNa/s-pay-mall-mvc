@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * @Author BanXia
- * @description:获取微信公众号token
+ * @description: 获取微信公众号token
  * @Date 2025/8/12 16:26
  */
 @Data
