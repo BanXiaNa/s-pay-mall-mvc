@@ -24,7 +24,7 @@
 - dao
 - domain
 	- po
-		- WeixinTemplateMessageVO 实体类
+		- WeixinTemplateMessageVO 微信模板信息实体类
 	- req
 		- WeixinQrCodeReq 微信二维码请求实体类
 	- res
