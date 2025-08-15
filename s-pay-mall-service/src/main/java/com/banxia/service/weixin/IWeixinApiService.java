@@ -1,6 +1,6 @@
 package com.banxia.service.weixin;
 
-import com.banxia.domain.po.WeixinTemplateMessageVO;
+import com.banxia.domain.vo.WeixinTemplateMessageVO;
 import com.banxia.domain.req.WeixinQrCodeReq;
 import com.banxia.domain.res.WeixinQrCodeRes;
 import com.banxia.domain.res.WeixinTokenRes;
@@ -54,5 +54,4 @@ public interface IWeixinApiService {
             @Query("access_token") String accessToken,
             @Body WeixinTemplateMessageVO weixinTemplateMessageVO
             );
-    
 }

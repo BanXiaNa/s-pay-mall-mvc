@@ -1,4 +1,4 @@
-package com.banxia.domain.po;
+package com.banxia.domain.vo;
 
 import java.util.HashMap;
 import java.util.Map;
