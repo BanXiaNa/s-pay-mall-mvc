@@ -2,6 +2,7 @@ package com.banxia.config;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.Cache;
+import com.google.common.eventbus.EventBus;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
