@@ -3,6 +3,8 @@ package com.banxia.dao;
 import com.banxia.domain.po.PayOrder;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * @Author BanXia
  * @description:
@@ -18,4 +20,10 @@ public interface IOrderDao {
     void updatePayOrderInfo(PayOrder payOrder);
 
     void changeOrderPaySuccess(PayOrder order);
+
+    List<String> queryTimeoutOrderList();
+
+    List<String> queryNoPayNotifyOrder();
+
+    boolean changeOrderPayClose(String orderId);
 }

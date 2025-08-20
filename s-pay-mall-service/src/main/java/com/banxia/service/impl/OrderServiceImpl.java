@@ -21,7 +21,10 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
+import java.util.Collections;
 import java.util.Date;
+import java.util.List;
+
 /**
  * @Author BanXia
  * @description:
@@ -42,6 +45,8 @@ public class OrderServiceImpl implements IOrderService {
     private ProductRPC productRPC;
     @Resource
     private AlipayClient alipayClient;
+    @Resource
+    private EventBus eventBus;
 
 
     /**
@@ -107,6 +112,32 @@ public class OrderServiceImpl implements IOrderService {
                 .orderId(orderId)
                 .payUrl(payOrder.getPayUrl())
                 .build();
+    }
+
+    @Override
+    public void changeOrderPaySuccess(String orderId) {
+        PayOrder payOrderReq = PayOrder.builder()
+                .orderId(orderId)
+                .status(Constants.OrderStatusEnum.PAY_SUCCESS.getCode())
+                .build();
+        orderDao.changeOrderPaySuccess(payOrderReq);
+        // 发布支付成功事件
+        eventBus.post(JSON.toJSONString(payOrderReq));
+    }
+
+    @Override
+    public List<String> queryNoPayNotifyOrderList() {
+        return orderDao.queryNoPayNotifyOrder();
+    }
+
+    @Override
+    public List<String> queryTimeOutOrderList() {
+        return orderDao.queryTimeoutOrderList();
+    }
+
+    @Override
+    public boolean changeOrderPayClose(String orderId){
+        return orderDao.changeOrderPayClose(orderId);
     }
 
 

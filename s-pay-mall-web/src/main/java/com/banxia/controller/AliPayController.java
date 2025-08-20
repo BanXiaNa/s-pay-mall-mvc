@@ -63,10 +63,16 @@ public class  AliPayController {
 
 
     /**
+     * 支付回调通知地址
+     * 支付宝会在支付完成后，向该地址发送POST请求，通知
      * http://banxia.natapp1.cc/api/v1/alipay/alipay_notify_url
+     * @param request
+     * @return
+     * @throws AlipayApiException
      */
     @RequestMapping(value = "alipay_notify_url", method = RequestMethod.POST)
     public String payNotify(HttpServletRequest request) throws AlipayApiException {
+
         log.info("支付回调，消息接收 {}", request.getParameter("trade_status"));
 
         if (!request.getParameter("trade_status").equals("TRADE_SUCCESS")) {
@@ -101,6 +107,8 @@ public class  AliPayController {
         log.info("支付回调，买家付款时间: {}", params.get("gmt_payment"));
         log.info("支付回调，买家付款金额: {}", params.get("buyer_pay_amount"));
         log.info("支付回调，支付回调，更新订单 {}", tradeNo);
+
+        orderService.changeOrderPaySuccess(tradeNo);
 
         return "success";
     }
