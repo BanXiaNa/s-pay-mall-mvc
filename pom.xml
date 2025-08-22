@@ -55,7 +55,6 @@
         <commons.codec.version>1.15</commons.codec.version>
         <org.redisson.version>3.26.0</org.redisson.version>
         <com.squareup.retrofit2.version>2.9.0</com.squareup.retrofit2.version>
-        <com.thoughtworks.xstream.new.version>1.4.20</com.thoughtworks.xstream.new.version>
         <com.alipay.sdk.version>4.38.157.ALL</com.alipay.sdk.version>
 
     </properties>
@@ -160,11 +159,6 @@
                 <groupId>com.squareup.retrofit2</groupId>
                 <artifactId>adapter-rxjava2</artifactId>
                 <version>${com.squareup.retrofit2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.thoughtworks.xstream</groupId>
-                <artifactId>xstream</artifactId>
-                <version>${com.thoughtworks.xstream.new.version}</version>
             </dependency>
             <!-- 支付宝沙箱支付对接文档：https://opendocs.alipay.com/common/02kkv7 -->
             <dependency>
